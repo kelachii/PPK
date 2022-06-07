@@ -1,13 +1,18 @@
-let database = localStorage;
+const  ticketButton = document.getElementById("ticket")
+ticketButton.addEventListener("click", function(){
+    let database = localStorage;
 
 
 let areYou = prompt("Are you a New Member : YES or NO");
 
 
+
+
 let newMem = areYou;
 
 if(newMem=="yes"){
-    const name = prompt("Input Your Name","")
+    let name = prompt("Input Your Name","")
+ 
     if(name==""){
         const mustName = prompt("Must Input Your Name")
         database.setItem("name", name);
@@ -15,28 +20,37 @@ if(newMem=="yes"){
    let age = areOld;
    const price = 1500;
    let calculate = (price/100) 
+   
+   let discount
    if(age<10){
-     calculate*= 100
+     discount = 100;
+     calculate*= discount
+     calculate = price - calculate
     alert(`Your Gate Fee is ₦${calculate} : FREE`)
 }
     else if(age < 18 && age >=10){
-        calculate*= 50
+         discount = 50;
+        calculate*= discount
         calculate = price - calculate;
     alert(`Your Gate Fee is ₦${calculate} `)
+    
        
     }
     else if(age < 27 && age >=18){
-        calculate*= 20
+         discount = 20;
+        calculate*= discount
         calculate = price - calculate;
     alert(`Your Gate Fee is ₦${calculate}`)
     }
     else if(age < 46 && age >=27){
-        calculate*= 5
+        discount = 5;
+        calculate*= discount
         calculate = price - calculate;
     alert(`Your Gate Fee is ₦${calculate}`)
     }
     else if(age < 65 && age >=46){
-        calculate*= 60
+         discount = 60;
+        calculate*= discount
         calculate = price - calculate;
         alert(`Your Gate Fee is ₦${calculate}`)
     }
@@ -47,34 +61,47 @@ if(newMem=="yes"){
     else{
         alert("Sir/Ma please kindly leave the environment , nor be here you go take die")
     }
+
+    document.getElementById("name").setAttribute("value", name);
+    document.getElementById("amount").setAttribute("value",calculate );
+    document.getElementById("discount").setAttribute("value", discount);
+    
     }else{
         database.setItem("name", name);
         let areOld = prompt("Biko Input Your Age,To calculate your discount","")
    let age = areOld;
    const price = 1500;
    let calculate = (price/100) 
+   let discount
    if(age<10){
-     calculate*= 100
+     discount = 100;
+     calculate*= discount
+     calculate = price - calculate
     alert(`Your Gate Fee is ₦${calculate} : FREE`)
 }
     else if(age < 18 && age >=10){
-        calculate*= 50
+         discount = 50;
+        calculate*= discount
         calculate = price - calculate;
     alert(`Your Gate Fee is ₦${calculate} `)
+    
        
     }
     else if(age < 27 && age >=18){
-        calculate*= 20
+         discount = 20;
+        calculate*= discount
         calculate = price - calculate;
     alert(`Your Gate Fee is ₦${calculate}`)
     }
     else if(age < 46 && age >=27){
-        calculate*= 5
+        discount = 5;
+        calculate*= discount
         calculate = price - calculate;
     alert(`Your Gate Fee is ₦${calculate}`)
     }
     else if(age < 65 && age >=46){
-        calculate*= 60
+         discount = 60;
+        calculate*= discount
         calculate = price - calculate;
         alert(`Your Gate Fee is ₦${calculate}`)
     }
@@ -85,6 +112,10 @@ if(newMem=="yes"){
     else{
         alert("Sir/Ma please kindly leave the environment , nor be here you go take die")
     }
+
+    document.getElementById("name").setAttribute("value", name);
+    document.getElementById("amount").setAttribute("value",calculate );
+    document.getElementById("discount").setAttribute("value", discount);
     }
     
     
@@ -97,28 +128,36 @@ else{
    let age = areOld;
    const price = 1500;
    let calculate = (price/100) 
+   let discount
    if(age<10){
-     calculate*= 100
+     discount = 100;
+     calculate*= discount
+     calculate = price - calculate
     alert(`Your Gate Fee is ₦${calculate} : FREE`)
 }
     else if(age < 18 && age >=10){
-        calculate*= 50
+         discount = 50;
+        calculate*= discount
         calculate = price - calculate;
     alert(`Your Gate Fee is ₦${calculate} `)
+    
        
     }
     else if(age < 27 && age >=18){
-        calculate*= 20
+         discount = 20;
+        calculate*= discount
         calculate = price - calculate;
     alert(`Your Gate Fee is ₦${calculate}`)
     }
     else if(age < 46 && age >=27){
-        calculate*= 5
+        discount = 5;
+        calculate*= discount
         calculate = price - calculate;
     alert(`Your Gate Fee is ₦${calculate}`)
     }
     else if(age < 65 && age >=46){
-        calculate*= 60
+         discount = 60;
+        calculate*= discount
         calculate = price - calculate;
         alert(`Your Gate Fee is ₦${calculate}`)
     }
@@ -129,7 +168,32 @@ else{
     else{
         alert("Sir/Ma please kindly leave the environment , nor be here you go take die")
     }
+
+    document.getElementById("name").setAttribute("value", database.getItem("name"));
+    document.getElementById("amount").setAttribute("value",calculate );
+    document.getElementById("discount").setAttribute("value", discount);
+   
 }
+
+});
+
+ let toDate = new Date().toJSON().slice(0,10).replace(/-/g,'/');
+ document.getElementById("date").innerHTML=toDate;
+
+
+ let modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+
+
+
+
 
 
 
