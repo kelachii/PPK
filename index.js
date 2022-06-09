@@ -3,7 +3,7 @@ ticketButton.addEventListener("click", function(){
     let database = localStorage;
 
 
-let areYou = prompt("Are you a New Member : YES or NO");
+let areYou = prompt("Are you a New Visitor : YES or NO");
 
 
 
@@ -12,10 +12,13 @@ let newMem = areYou;
 
 if(newMem=="yes"){
     let name = prompt("Input Your Name","")
+    database.setItem("name", name);
+    alert(`Hello ${database.getItem("name")} Welcome To PPK`);
  
     if(name==""){
         const mustName = prompt("Must Input Your Name")
         database.setItem("name", name);
+        alert(`Hello ${database.getItem("name")} Welcome To PPK`);
         let areOld = prompt("Biko Input Your Age,To calculate your discount","")
    let age = areOld;
    const price = 1500;
